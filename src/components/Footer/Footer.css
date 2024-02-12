@@ -1,0 +1,15 @@
+footer {
+  background-color: #495e57;
+  padding: 3rem 0;
+  color: white;
+}
+
+section {
+  display: flex;
+  justify-content: space-between;
+  gap: 5rem;
+  flex: 1; /*items should grow to fill viewport width*/
+  margin: 0 auto;
+  width: 80%;
+  text-align: start;
+}
