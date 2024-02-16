@@ -4,8 +4,8 @@
   color: white;
   padding: 2rem 10%;
   display: flex;
-  /* flex: 1 1 auto; */
   justify-content: space-between;
+  margin-bottom: 4rem;
 }
 
 .hero-section h1 {
@@ -30,11 +30,12 @@
   max-width: 450px;
 }
 
-.hero-cta {
+.hero-cta,
+.featured-cta {
   border-radius: 0.5rem;
   background-color: #f4ce14;
   color: black;
-  padding: 0.5rem 1.5rem;
+  padding: 0.75rem 1.5rem;
   width: fit-content;
   font-weight: 700;
 }
@@ -54,8 +55,80 @@
 /* Featured Section */
 
 .featured-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem 10%;
+  margin-bottom: 4rem;
+}
+
+.featured-details {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 4rem;
+}
+
+.featured-cards {
+  display: flex;
+  gap: 2rem;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.featured-card {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 350px;
+}
+
+.featured-card .img-box {
+  height: 200px;
+  overflow: hidden;
 }
 
 .featured-cards img {
-  max-width: 280px;
+  width: 100%;
+  border-top-left-radius: 2rem;
+  border-top-right-radius: 2rem;
+}
+
+.featured-card {
+  max-width: 350px;
+}
+
+.featured-card .card-details {
+  background-color: #edefee;
+  padding: 2rem;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex: 1 1 auto;
+}
+
+.food-description {
+  color: #495e57;
+}
+
+.featured-card .price {
+  position: absolute;
+  top: 2rem;
+  right: 2rem;
+  margin: 0;
+  font-weight: 700;
+  color: #ee9972;
+  line-height: 2;
+}
+
+.featured-card a {
+  font-weight: 700;
+}
+
+@media only screen and (max-width: 1400px) {
+  .featured-cards {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
 }
