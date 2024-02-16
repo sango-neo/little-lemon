@@ -8,7 +8,7 @@ const Footer = () => {
         <section>
             <img src={footerLogo} alt="footer logo" style={{display: "block"}} />
             <article>
-                <h3>Doormat Navigation</h3>
+                <h4>Doormat Navigation</h4>
                 <nav>
                     <ul>
                         <li><a href="./home">Home</a></li>
@@ -21,13 +21,13 @@ const Footer = () => {
                 </nav>
             </article>
             <article>
-                <h3>Contact</h3>
+                <h4>Contact</h4>
                 <p>Physical Address</p>
                 <p>Phone number</p>
                 <p><a href="mailto:placeholder@littlelemon.com">Email Address</a></p>
             </article>
             <article>
-                <h3>Social Media Links</h3>
+                <h4>Social Media Links</h4>
                 <ul>
                     <li><a href="https://www.facebook.com">Facebook</a></li>
                     <li><a href="https://www.instagram.com">Instagram</a></li>

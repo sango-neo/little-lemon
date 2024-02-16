@@ -1,16 +1,49 @@
+/* import fonts from google fonts */
 :root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-family: "Karla", system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
+  font-size: 16px;
 
   color-scheme: light dark;
-  /* color: rgba(255, 255, 255, 0.87);
-  background-color: #242424; */
+  /* color: rgba(255, 255, 255, 0.87); */
+  background-color: #495e57;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  /* use border-box as the preferred box-sizing */
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+h1,
+h2,
+h3 {
+  font-family: "Markazi Text", serif;
+  margin: 0;
+}
+
+h1 {
+  font-size: 2.75rem;
+  font-weight: 500;
+  font-size: 4rem;
+  line-height: 0.8;
+  margin: 0.5rem 0;
+}
+
+h2 {
+  font-size: 2.25rem;
+}
+
+h3 {
+  font-size: 1.5rem;
 }
 
 ul {
@@ -26,7 +59,7 @@ a {
 li {
   list-style: none;
   /* display: inline-block; */
-  margin-right: 0.5rem;
+  margin-right: 1rem;
 }
 
 li:last-child {
