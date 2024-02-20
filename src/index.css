@@ -16,6 +16,7 @@
 
   /* use border-box as the preferred box-sizing */
   box-sizing: border-box;
+  scroll-behavior: smooth;
 }
 
 body {
@@ -54,6 +55,7 @@ ul {
 a {
   text-decoration: none;
   color: inherit;
+  display: inherit;
 }
 
 li {
