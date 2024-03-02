@@ -1,8 +1,13 @@
 import React from 'react'
+import BookingForm from '../components/Booking/BookingForm';
 
 const ReservationsPage = () => {
   return (
-    <div>ReservationsPage</div>
+    <section >
+      <div style={{margin: '2rem 10% 0'}}>Reservations</div>
+      <hr />
+      <BookingForm />
+    </section>
   )
 }
 
