@@ -9,16 +9,31 @@ const todayYear = date.getFullYear;
 const today = `${todayYear}-${todayMonth > 9 ? todayMonth : '0'+todayMonth}-${todayDay}`;
 
 const BookingForm = () => {
-  const [date, setDate] = useState(today);
+  // const [date, setDate] = useState(today);
   const [availableTimes, setAvailableTimes] = useState([
     '17:00', '18:00', '19:00', '20:00', '21:00', '22:00'
   ]);
-  const [guests, setGuests] = useState(1);
-  const [occasions, setOccasions] = useState(['Birthday', 'Anniversary']);
+  // const [guests, setGuests] = useState(1);
+  // const [occasions, setOccasions] = useState(['Birthday', 'Anniversary']);
+
+  const [formData, setFormData] = useState({
+    resDate: today,
+    resTime: "",
+    guests: 1,
+    occasion: "",
+  });
+
+  const handleChange = (e) => {
+    console.log("form data has changed");
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value
+    });
+  }
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(e.target);
+    console.log("form data to send: ", formData);
   }
   
 
@@ -29,14 +44,14 @@ const BookingForm = () => {
         <label htmlFor="res-date">
           Choose date
           <br />
-          <input type="date" id="res-date" value={date} onChange={e => setDate(e.target.value)}/>
+          <input type="date" id="res-date" name="resDate" value={formData.resDate} onChange={handleChange}/>
           {/* needs logic to prevent selecting day in the past */}
         </label>
         <label htmlFor="res-time">
           Choose time
           <br />
-          <select id="res-time" onChange={e => setAvailableTimes(prev => [...prev, e.target.value])}>
-              {availableTimes.map(time => <option key={time}>{time}</option>)}
+          <select id="res-time" name='resTime' onChange={handleChange}>
+              {availableTimes.map(time => <option key={time} value={time}>{time}</option>)}
           </select>
         </label>
         <label htmlFor="guests">
@@ -48,8 +63,9 @@ const BookingForm = () => {
             min="1" 
             max="10" 
             id="guests"
-            value={guests}
-            onChange={e => setGuests(e.target.value)}
+            name='guests'
+            value={formData.guests}
+            onChange={handleChange}
             />
         </label>
         <label htmlFor="occasion">
@@ -57,9 +73,11 @@ const BookingForm = () => {
           <br />
           <select 
             id="occasion"
-            onChange={e => setOccasions(prev => [...prev, e.target.value])}
+            name='occasion'
+            onChange={handleChange}
           >
-            {occasions.map(occasion => <option key={occasion}>{occasion}</option>)}
+            <option value="anniversary">Anniversary</option>
+            <option value="birthday">Birthday</option>
         </select>
         </label>
         
