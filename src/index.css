@@ -68,6 +68,14 @@ li:last-child {
   margin-right: 0;
 }
 
+.booking_content_wrapper {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: 1fr 2fr;
+
+  margin: 4rem 10%;
+}
+
 /* a {
   font-weight: 500;
   color: #646cff;
