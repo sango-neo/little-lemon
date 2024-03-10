@@ -2,7 +2,10 @@ import React from 'react'
 
 const MenuPage = () => {
   return (
-    <div>MenuPage</div>
+    <main className='work-in-progress-wrapper'>
+      <h1>Menu Page</h1>
+      <p>Ready soon...</p>
+    </main>
   )
 }
 

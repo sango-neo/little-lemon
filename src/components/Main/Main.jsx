@@ -3,6 +3,9 @@ import './Main.css';
 import heroImg from '../../assets/home-hero-img.png'
 import FeaturedCard from './components/FeaturedCard';
 import { Link } from 'react-router-dom';
+import TestimonialsCard from './components/TestimonialsCard';
+
+import testimonialsData from '../../assets/testimonial-data.json';
 
 
 const Main = () => {
@@ -30,11 +33,27 @@ const Main = () => {
           })}
         </div>
       </section>
-      <section className='content-section' style={{textAlign: 'center'}}>
-        Testimonials
+      <section className='content-section testimonials-section' style={{textAlign: 'center'}}>
+        <h2>Testimonials</h2>
+        <div className='testimonial-cards-wrapper'>
+          {testimonialsData.map(testimonial => {
+            return <TestimonialsCard rating={testimonial.rating} name={testimonial.name} imgUrl={testimonial.imgUrl} comment={testimonial.comment} key={testimonial.imgUrl}/>
+          })}
+        </div>
       </section>
-      <section className='content-section' style={{textAlign: 'center'}}>
-        About Little Lemon
+      <section className='content-section about-section' style={{textAlign: 'center'}}>
+        <article className='about-ll'>
+          <h2>Our Story</h2>
+          <h3>Little Lemon</h3>
+          <h3>Chicago</h3>
+          <p>
+          Little Lemon, a cozy Mediterranean eatery, was born from the passion for authentic flavors and warm hospitality shared by its founders. Inspired by their travels and culinary adventures, these two folks set out to create a haven where every dish tells a story and every guest feels like family. With fresh ingredients and time-honored recipes, Little Lemon brings a taste of the Mediterranean to your table, inviting you to savor the essence of sun-kissed shores and shared memories.
+          </p>
+        </article>
+        <div className='img-wrapper'>
+          <img src="https://res.cloudinary.com/dugyuridn/image/upload/v1710097917/founder1_yaolwb.png" alt="founders image 1" className='img-founder-1' />
+          <img src="https://res.cloudinary.com/dugyuridn/image/upload/v1710097950/founder2_scguhb.png" alt="founders image 2" className='img-founder-2'/>
+        </div>
       </section>
     </main>
   )
