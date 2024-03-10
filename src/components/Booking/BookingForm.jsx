@@ -1,20 +1,24 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import './BookingForm.css';
+import { submitAPI } from '../../api/api';
+import { useNavigate } from 'react-router-dom';
 
 
 const date = new Date();
 const todayDay = date.getDate();
-const todayMonth = date.getMonth + 1;
-const todayYear = date.getFullYear;
-const today = `${todayYear}-${todayMonth > 9 ? todayMonth : '0'+todayMonth}-${todayDay}`;
+const todayMonth = date.getMonth() + 1;
+const todayYear = date.getFullYear();
+const today = `${todayYear}-${todayMonth > 9 ? todayMonth : '0'+todayMonth}-${todayDay > 9 ? todayDay : '0'+todayDay}`;
 
-const BookingForm = () => {
+const BookingForm = ({ availableTimes, dispatch }) => {
   // const [date, setDate] = useState(today);
-  const [availableTimes, setAvailableTimes] = useState([
-    '17:00', '18:00', '19:00', '20:00', '21:00', '22:00'
-  ]);
+  // const [availableTimes, setAvailableTimes] = useState();
   // const [guests, setGuests] = useState(1);
   // const [occasions, setOccasions] = useState(['Birthday', 'Anniversary']);
+
+  // useEffect(() => {
+  //   console.log(availableTimes);
+  // }, [])
 
   const [formData, setFormData] = useState({
     resDate: today,
@@ -23,8 +27,20 @@ const BookingForm = () => {
     occasion: "",
   });
 
+  const navigate = useNavigate();
+
   const handleChange = (e) => {
     console.log("form data has changed");
+    if (e.target.name === "resDate") {
+      const date = e.target.value;
+      dispatch({type: 'timeUpdate', date})
+
+      return setFormData({
+        ...formData,
+        resDate: date
+      });
+    }
+
     setFormData({
       ...formData,
       [e.target.name]: e.target.value
@@ -34,11 +50,18 @@ const BookingForm = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log("form data to send: ", formData);
+    if (submitAPI(formData)) {
+      navigate("/booking-confirmation", { state: {...formData} })
+    } else {
+      alert("Something's wrong with the form data");
+    }
   }
   
 
   return (
-    <form
+    <div>
+      <h3>Reserve a table: </h3>
+      <form
       onSubmit={handleSubmit}
     >
         <label htmlFor="res-date">
@@ -51,7 +74,8 @@ const BookingForm = () => {
           Choose time
           <br />
           <select id="res-time" name='resTime' onChange={handleChange}>
-              {availableTimes.map(time => <option key={time} value={time}>{time}</option>)}
+              <option value="choose-time">--select a time--</option>
+              {availableTimes.times.map(time => <option key={time} value={time}>{time}</option>)}
           </select>
         </label>
         <label htmlFor="guests">
@@ -76,6 +100,7 @@ const BookingForm = () => {
             name='occasion'
             onChange={handleChange}
           >
+            <option value="choose-occasion">--select an occasion--</option>
             <option value="anniversary">Anniversary</option>
             <option value="birthday">Birthday</option>
         </select>
@@ -83,6 +108,7 @@ const BookingForm = () => {
         
         <input type="submit" value="Make Your reservation" />
     </form>
+    </div>
   )
 }
 
