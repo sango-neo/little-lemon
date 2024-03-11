@@ -1,20 +1,23 @@
-import React from 'react'
+import React, { useEffect } from 'react'
+import { useLocation } from 'react-router-dom';
 
 const ConfirmBookingPage = () => {
+  const location = useLocation();
+
   return (
-    <main>
+    <main className='confirmation_page_wrapper'>
       <h1>Booking confirmed!</h1>
       <section>
-        <h2>Your booking details: </h2>
-        <div>
-          <p>Date: <span>Your date</span></p>
-          <p>Time: <span>Your time</span></p>
-          <p>Number of guests: <span>Guests</span></p>
-          <p>Occasion: <span>Your occasion</span></p>
-        </div>
+        <article className='confirmation_details'>
+          <h2>Your booking details: </h2>
+          <p>Date: <span>{location.state.resDate}</span></p>
+          <p>Time: <span>{location.state.resTime}</span></p>
+          <p>Number of guests: <span>{location.state.guests}</span></p>
+          <p>Occasion: <span>{location.state.occasion}</span></p>
+          <hr />
+          <p>You will receive an email with your unique digital ticket to present on arrival at the restaurant. Enjoy!</p>
+        </article>
       </section>
-      <p>Click 'confirm booking' to have an email with your unique booking ID emailed to you</p>
-      <button>Confirm</button>
     </main>
   )
 }

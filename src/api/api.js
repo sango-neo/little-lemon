@@ -38,12 +38,10 @@ export const submitAPI = (formData) => {
 };
 
 export const updateTimes = (state, action) => {
-  switch (action.type) {
-    case "UPDATE_TIMES":
-      return { ...state, times: fetchAPI(action.date) };
-    default:
-      return state;
+  if (action.type === "timeUpdate") {
+    return { ...state, times: fetchAPI(action.date) };
   }
+  return state;
 };
 
 export const initializeTimes = () => {
