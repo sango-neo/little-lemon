@@ -9,17 +9,10 @@ import { updateTimes, initializeTimes } from '../api/api';
 const ReservationsPage = () => {
   const [availableTimes, dispatch] = useReducer(updateTimes, initializeTimes());
 
-  useEffect(() => {
-    console.log("checking availables times from API/app state...");
-    setTimeout(() => {
-      console.log("done");
-    }, 2000)
-  }, []);
-
 
   return (
     <main >
-      <div style={{margin: '2rem 10% 0'}}>Reservations</div>
+      <div style={{margin: '2rem 10% 0'}}><h1>Reservartions</h1></div>
         <hr />
         <div className='booking_content_wrapper'>
           <BookingForm availableTimes={availableTimes} dispatch={dispatch} />

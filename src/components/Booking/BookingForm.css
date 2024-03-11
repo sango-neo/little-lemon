@@ -8,6 +8,11 @@ label > * {
   width: 100%;
 }
 
+label div {
+  /* style errors */
+  color: tomato;
+}
+
 #guests {
   width: 3rem;
 }
@@ -30,4 +35,23 @@ label > * {
   display: grid;
   grid-template-columns: max-content max-content;
   place-content: start;
+}
+
+button[type="submit"] {
+  background-color: #495e57;
+  color: white;
+  border: none;
+  border-radius: 0.25rem;
+  padding: 0.75rem;
+}
+
+button[type="submit"]:hover {
+  cursor: pointer;
+  background-color: #3d4e48;
+}
+
+button[type="submit"]:disabled {
+  background-color: #ccc; /* Change background color */
+  color: #666; /* Change text color */
+  cursor: not-allowed; /* Change cursor to not-allowed */
 }
