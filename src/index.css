@@ -81,6 +81,14 @@ li:last-child {
   margin: 4rem 10%;
 }
 
+.confirmation_details span {
+  color: #495e57;
+  font-weight: 500;
+  padding: 0.5rem;
+  background-color: #f7f7f7;
+  border-radius: 0.25rem;
+}
+
 /* a {
   font-weight: 500;
   color: #646cff;
