@@ -1,0 +1,26 @@
+[
+    {
+        "rating": 4.5,
+        "name": "Gabrielle Manas",
+        "imgUrl": "https://res.cloudinary.com/dugyuridn/image/upload/v1710085770/test-gabrielle_c5u4wz.jpg",
+        "comment": "Delicious flavors that transport me straight to the Mediterranean coast with every bite!"
+    },
+    {
+        "rating": 4,
+        "name": "Rachelle Morty",
+        "imgUrl": "https://res.cloudinary.com/dugyuridn/image/upload/v1710085770/testi-rachelle_dvu4ak.jpg",
+        "comment": "A hidden gem! Little Lemon's dishes are bursting with freshness and authenticity."
+    },
+    {
+        "rating": 5,
+        "name": "Benny Hugh",
+        "imgUrl": "https://res.cloudinary.com/dugyuridn/image/upload/v1710085770/testi-benny_bfbquk.jpg",
+        "comment": "The perfect spot for a taste of the Mediterranean. Every dish feels like a culinary adventure."
+    },
+    {
+        "rating": 5,
+        "name": "Peter Venti",
+        "imgUrl": "https://res.cloudinary.com/dugyuridn/image/upload/v1710085771/testi-peter_yaus5g.jpg",
+        "comment": "Little Lemon has become my go-to for flavorful meals that leave me craving more. Highly recommend!"
+    }
+]

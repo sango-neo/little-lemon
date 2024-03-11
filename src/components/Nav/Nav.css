@@ -1,0 +1,40 @@
+nav .active {
+  font-weight: 700;
+  /* font-size: 1.2rem; */
+  position: relative;
+  color: #495e57;
+  transition: all 0.1s ease;
+}
+
+nav .navlink {
+  position: relative;
+}
+
+nav .navlink::before {
+  content: "";
+  position: absolute;
+  bottom: -6px;
+  left: 0;
+  width: 0;
+  height: 0.25rem;
+  background-color: hsla(160, 13%, 33%, 0.5);
+  transition: width 0.1s ease;
+  border-radius: 2px;
+}
+
+nav .active::before {
+  content: "";
+  position: absolute;
+  bottom: -6px;
+  left: 0;
+  width: 100%;
+  height: 0.25rem;
+  background-color: #495e57;
+  transition: width 0.1s ease;
+  border-radius: 2px;
+}
+
+nav .active:hover::before,
+nav .navlink:hover::before {
+  width: 100%;
+}
