@@ -71,7 +71,7 @@ li:last-child {
 .booking_content_wrapper {
   display: grid;
   gap: 1rem;
-  grid-template-columns: 1fr 2fr;
+  grid-template-columns: 1fr 1fr;
 
   margin: 4rem 10%;
 }
