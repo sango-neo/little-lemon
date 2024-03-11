@@ -1,9 +1,9 @@
 import React from 'react'
 
-const BookingSlot = () => {
+const BookingSlot = ({ time }) => {
   return (
     <div className='booking_slot'>
-        Booking slot
+        {time}
     </div>
   )
 }

@@ -1,24 +1,24 @@
 const seededRandom = (seed) => {
-  const m = 2 ** 35 - 31;
-  const a = 185852;
-  let s = seed % m;
-  return function () {
-    return (s = (s * a) % m) / m;
+  const rootModulo = 16807; //primitive root modulo
+  const mersPrime = 2 ** 31 - 1; //Mersenne prime
+  let s = seed % mersPrime;
+
+  const generateRandom = () => {
+    s = (s * rootModulo) % mersPrime;
+    return s / mersPrime;
   };
+
+  return generateRandom;
 };
 
 export const fetchAPI = (date) => {
   const result = [];
-  let random;
+  const random =
+    typeof date === "string"
+      ? seededRandom(new Date(date).getDate())
+      : seededRandom(date.getDate());
 
-  if (typeof date === "string") {
-    const convertedDate = new Date(date);
-    random = seededRandom(convertedDate.getDate());
-  } else {
-    random = seededRandom(date.getDate());
-  }
-
-  for (let i = 17; i <= 23; i++) {
+  for (let i = 16; i <= 22; i++) {
     if (random() < 0.5) {
       result.push(i + ":00");
     }
@@ -47,7 +47,6 @@ export const updateTimes = (state, action) => {
 };
 
 export const initializeTimes = () => {
-  // create a Date object to represent today's date
   const today = new Date();
   return { times: fetchAPI(today) };
 };

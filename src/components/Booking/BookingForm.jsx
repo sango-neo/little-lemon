@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import './BookingForm.css';
 import { submitAPI } from '../../api/api';
 import { useNavigate } from 'react-router-dom';
@@ -11,14 +11,6 @@ const todayYear = date.getFullYear();
 const today = `${todayYear}-${todayMonth > 9 ? todayMonth : '0'+todayMonth}-${todayDay > 9 ? todayDay : '0'+todayDay}`;
 
 const BookingForm = ({ availableTimes, dispatch }) => {
-  // const [date, setDate] = useState(today);
-  // const [availableTimes, setAvailableTimes] = useState();
-  // const [guests, setGuests] = useState(1);
-  // const [occasions, setOccasions] = useState(['Birthday', 'Anniversary']);
-
-  // useEffect(() => {
-  //   console.log(availableTimes);
-  // }, [])
 
   const [formData, setFormData] = useState({
     resDate: today,
@@ -60,14 +52,14 @@ const BookingForm = ({ availableTimes, dispatch }) => {
 
   return (
     <div>
-      <h3>Reserve a table: </h3>
+      <h3 data-testid="form-heading">Reserve a table: </h3>
       <form
       onSubmit={handleSubmit}
     >
         <label htmlFor="res-date">
           Choose date
           <br />
-          <input type="date" id="res-date" name="resDate" value={formData.resDate} onChange={handleChange}/>
+          <input type="date" id="res-date" name="resDate" value={formData.resDate} onChange={handleChange} min={formData.resDate}/>
           {/* needs logic to prevent selecting day in the past */}
         </label>
         <label htmlFor="res-time">

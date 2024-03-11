@@ -6,15 +6,9 @@ const BookingSlotList = ({ availableTimes }) => {
     <section className='booking_slot_list'>
         <h3>Available times for chosen date: </h3>
         <ul>
-            <li>
-                <BookingSlot />
-            </li>
-            <li>
-                <BookingSlot />
-            </li>
-            <li>
-                <BookingSlot />
-            </li>
+            {availableTimes.times.map(time => {
+                return <li><BookingSlot time={time} key={time} /></li>
+            })}
         </ul>
     </section>
   )
