@@ -76,7 +76,8 @@ li:last-child {
   margin: 4rem 10%;
 }
 
-.work-in-progress-wrapper {
+.work-in-progress-wrapper,
+.confirmation_page_wrapper {
   margin: 4rem 10%;
 }
 
